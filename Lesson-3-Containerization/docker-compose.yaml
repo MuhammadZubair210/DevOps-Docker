@@ -5,6 +5,7 @@ services:
     image: dockersamples/k8s-wordsmith-web
     ports:
       - "80:80"
+
   words:
     image: dockersamples/k8s-wordsmith-api
     deploy:
