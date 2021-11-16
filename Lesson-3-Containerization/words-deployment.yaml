@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.24.0 (4a2a0458)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: words
+  name: words
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      io.kompose.service: words
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: words
+    spec:
+      containers:
+        - image: dockersamples/k8s-wordsmith-api
+          name: words
+          resources:
+            limits:
+              memory: "52428800"
+            requests:
+              memory: "52428800"
+      restartPolicy: Always
+status: {}
